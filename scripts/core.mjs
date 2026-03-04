@@ -1,0 +1,29 @@
+const MODULE_ID = "capkcks-fvtt-stuff";
+
+// Item filter for usable
+// WARNING: Requires the following tweaks in the dnd5e system module to work:
+/*
+In the file systems/dnd5e/dnd5e.mjs in the _prepareSpellsContext function, add the following line to the filters object like so:
+
+filters: [
+        { key: "usable", label: "Usable" },
+        ... other filters
+    ]
+*/
+Hooks.on("dnd5e.filterItem", (sheet, item, filters) => {
+    if (filters.has("usable")) {
+        // Check if item is either prepared, is innate spellcasting or is from an item
+        if (item.system.method === "spell" && item.system.prepared != 0) {
+            return true;
+        }
+        if (item.system.method == "innate") {
+            return true;
+        }
+        if (item.effects.has("dnd5espellchange")) {
+            // TODO: Need to check if this is a unique identifier for spells from items
+            return true;
+        }
+        return false;
+    }
+    return true;
+});
