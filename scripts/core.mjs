@@ -10,13 +10,14 @@ filters: [
         ... other filters
     ]
 */
+// TODO: Maybe add a different option where uses and spell slots are considered as well
 Hooks.on("dnd5e.filterItem", (sheet, item, filters) => {
     if (filters.has("usable")) {
-        // Check if item is either prepared, is innate spellcasting or is from an item
-        if (item.system.method === "spell" && item.system.prepared != 0) {
+        // Check if item is either prepared, is innate/pact/atwill or is from an item
+        if (item.system.prepared != 0) {
             return true;
         }
-        if (item.system.method == "innate") {
+        if (item.system.method === "innate" || item.system.method === "ritual" || item.system.method === "atwill") {
             return true;
         }
         if (item.effects.has("dnd5espellchange")) {
