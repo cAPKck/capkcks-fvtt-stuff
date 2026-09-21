@@ -22,6 +22,7 @@ This [FoundryVTT](https://foundryvtt.com) module is a collection of some persona
 | **Description** | Notes |
 | --- | --- | 
 | dnd5e - Sort Spell list by "usable" | Currently requires a tweak in the dnd5e system |
+| dnd5e - Wild Magic Surge Automation | Includes "Tides of Chaos" |
 
 
 ## Contributing

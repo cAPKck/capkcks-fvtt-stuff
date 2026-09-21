@@ -2,10 +2,10 @@
     "id": "capkcks-fvtt-stuff",
     "title": "cAPKck's FVTT stuff",
     "version": "1.0.0",
-    "description": "A collection of various tweaks and functions for Foundry VTT.",
+    "description": "A collection of various tweaks and functions for Foundry VTT and D&D 5e.",
     "compatibility": {
-        "minimum": "13",
-        "verified": "13.351"
+        "minimum": "14",
+        "verified": "14.368"
     },
     "esmodules": ["scripts/core.mjs"],
     "styles": [],
@@ -15,8 +15,8 @@
                 "id": "dnd5e",
                 "type": "system",
                 "compatibility": {
-                    "minimum": "5.2.5",
-                    "verified": "5.2.5"
+                    "minimum": "6.0.0",
+                    "verified": "6.0.3"
                 }
             }
         ]
