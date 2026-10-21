@@ -40,6 +40,9 @@ Hooks.on("dnd5e.postUseActivity", async (activity) => {
 
     // Only fire when a spell slot is actually consumed
     if (!activity.consumption?.spellSlot) return;
+    if (!item) return;
+    if (item.type !== "spell") return;
+    if (item.system.level === 0) return; // Ignore cantrips
     
     const character = item.parent;
 
@@ -49,10 +52,6 @@ Hooks.on("dnd5e.postUseActivity", async (activity) => {
 
     // Check if the character has uses of "Tides of Chaos" left
     const usesLeft = tidesOfChaos.system.uses?.value || 0;
-
-    // Get the list of users who should see the roll (player and GM)
-    const whisperTargets = [game.user.id, ...game.users.filter(u => u.isGM).map(u => u.id)];
-    console.log(whisperTargets);
 
     if (usesLeft <= 0) {
         // Prompt for a wild magic table roll (private)
