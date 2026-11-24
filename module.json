@@ -5,7 +5,7 @@
     "description": "A collection of various tweaks and functions for Foundry VTT and D&D 5e.",
     "compatibility": {
         "minimum": "14",
-        "verified": "14.368"
+        "verified": "14.370"
     },
     "esmodules": ["scripts/core.mjs"],
     "styles": [],
@@ -16,7 +16,7 @@
                 "type": "system",
                 "compatibility": {
                     "minimum": "6.0.0",
-                    "verified": "6.0.3"
+                    "verified": "6.1.1"
                 }
             }
         ]

@@ -63,8 +63,8 @@ Hooks.on("dnd5e.postUseActivity", async (activity) => {
         } else {
             ui.notifications.warn("Wild Magic Surge table not found!");
         }
-        // Then reset the uses of "Tides of Chaos" to 1 (private)
-        await tidesOfChaos.update({ "system.uses.value": 1 });
+        // Then reset the uses of "Tides of Chaos" to max (private)
+        await tidesOfChaos.update({ "system.uses.spent": 0 });
     } else {
         // Roll a d20 (private)
         const roll = await new Roll("1d20").roll();
